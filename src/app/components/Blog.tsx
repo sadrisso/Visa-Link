@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "motion/react";
 import Image from "next/image";
 
 type Blog = {
@@ -36,9 +36,14 @@ const Blog = () => {
   return (
     <section className="py-12 px-6 lg:px-16 bg-gray-50">
       <h2 className="text-3xl font-bold text-center mb-10">Our Blogs</h2>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+      >
         {blogs.map((blog) => (
-          <div
+          <motion.div
+          whileHover={{ scale: 1.1 }}
             key={blog.id}
             className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
@@ -59,9 +64,9 @@ const Blog = () => {
                 Read More →
               </button>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

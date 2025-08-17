@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import { motion } from "motion/react";
 import Link from "next/link";
 
 interface VisaService {
@@ -90,18 +91,22 @@ export default function VisaServices() {
               <Link
                 href={`services/${service?.id}`}
                 key={service.id}
-                className="bg-white/95 border p-4 rounded-lg shadow-md hover:shadow-lg transition"
+                className="rounded-lg shadow-md hover:shadow-lg transition"
               >
-                <h2 className="text-lg text-black font-semibold">
-                  {service.name}
-                </h2>
-                <p className="text-gray-500 text-sm line-clamp-2">
-                  {service.description}
-                </p>
-                <p className="mt-2 text-sm text-gray-700">
-                  Processing Time:{" "}
-                  <span className="font-medium">{service.processingTime}</span>
-                </p>
+                <motion.div className="bg-white/95 p-3 rounded-lg" whileHover={{ scale: .9 }}>
+                  <h2 className="text-lg text-black font-semibold">
+                    {service.name}
+                  </h2>
+                  <p className="text-gray-500 text-sm line-clamp-2">
+                    {service.description}
+                  </p>
+                  <p className="mt-2 text-sm text-gray-700">
+                    Processing Time:{" "}
+                    <span className="font-medium">
+                      {service.processingTime}
+                    </span>
+                  </p>
+                </motion.div>
               </Link>
             ))
           ) : (

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 interface ApplicationData {
   name: string;
@@ -102,7 +103,25 @@ const ApplicationForm: React.FC = () => {
           <button
             className="mt-4 w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-colors duration-300"
             onClick={() =>
-              router.push("/")
+              Swal.fire({
+                title: "Are you sure?",
+                text: "Want to submit your application",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Submit"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  router.push("/")
+                  Swal.fire({
+                    title: "Submited!",
+                    text: "Your file has been submited.",
+                    icon: "success"
+                  });
+                }
+              })
+              
             }
           >
             Save Application
