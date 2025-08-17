@@ -15,20 +15,20 @@ const blogs: Blog[] = [
     title: "Visa Application Tips",
     excerpt:
       "Learn the best practices for a smooth visa application process...",
-    image: "https://i.ibb.co/1mVV7Pp/blog1.jpg",
+    image: "https://i.ibb.co.com/84RZdVbX/blog1.jpg",
   },
   {
     id: 2,
     title: "Documents You Need",
     excerpt: "A checklist of essential documents for your visa journey...",
-    image: "https://i.ibb.co/bRsrtfF/blog2.jpg",
+    image: "https://i.ibb.co.com/39msm8gR/blog2.jpg",
   },
   {
     id: 3,
     title: "Avoid Common Mistakes",
     excerpt:
       "Stay aware of the top mistakes applicants make and how to avoid them...",
-    image: "https://i.ibb.co/tc8wnB4/blog3.jpg",
+    image: "https://i.ibb.co.com/VWL25R7b/blog3.jpg",
   },
 ];
 

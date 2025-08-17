@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 interface VisaService {
@@ -24,10 +25,13 @@ function OurServices() {
 
   return (
     <div>
-      <h1 className="text-center font-bold text-2xl md:text-4xl p-4">Our Services</h1>
+      <h1 className="text-center font-bold text-2xl md:text-4xl p-4">
+        Our Services
+      </h1>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 md:px-16">
         {services?.map((service) => (
-          <div
+          <Link
+            href={`services/${service?.id}`}
             key={service?.id}
             className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
@@ -50,7 +54,7 @@ function OurServices() {
                 {service?.description}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

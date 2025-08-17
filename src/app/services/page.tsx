@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import Link from "next/link";
 
 interface VisaService {
   id: number;
@@ -86,7 +87,8 @@ export default function VisaServices() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredServices.length > 0 ? (
             filteredServices.map((service) => (
-              <div
+              <Link
+                href={`services/${service?.id}`}
                 key={service.id}
                 className="bg-white/95 border p-4 rounded-lg shadow-md hover:shadow-lg transition"
               >
@@ -103,7 +105,7 @@ export default function VisaServices() {
                 <p className="text-sm text-gray-700">
                   Fee: <span className="font-medium">${service.fee}</span>
                 </p>
-              </div>
+              </Link>
             ))
           ) : (
             <p className="text-white text-lg">No services found.</p>
