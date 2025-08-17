@@ -14,6 +14,8 @@ interface VisaService {
 
 export default function VisaServices() {
   const [services, setServices] = useState<VisaService[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedFee, setSelectedFee] = useState("all");
 
   useEffect(() => {
     fetch("/data/visaService.json")
@@ -22,27 +24,90 @@ export default function VisaServices() {
       .catch((err) => console.error("Error fetching visa services:", err));
   }, []);
 
+  // Filter & Search Logic
+  const filteredServices = services.filter((service) => {
+    const matchesSearch = service.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+
+    const matchesFee =
+      selectedFee === "all" ||
+      (selectedFee === "low" && service.fee < 100) ||
+      (selectedFee === "medium" && service.fee >= 100 && service.fee <= 500) ||
+      (selectedFee === "high" && service.fee > 500);
+
+    return matchesSearch && matchesFee;
+  });
+
   return (
     <div
-      className="relative md:h-[100vh] flex flex-col items-start justify-center bg-cover bg-center p-4"
+      className="relative min-h-screen flex flex-col items-start justify-start bg-cover bg-center p-4"
       style={{
-        backgroundImage: "url('https://i.ibb.co.com/HfPPD1VC/visa-banner.jpg')",
+        backgroundImage: "url('https://i.ibb.co.com/QvrXdnj2/banner-2.jpg')",
       }}
     >
-      <div className="md:px-16">
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      {/* Content */}
+      <div className="relative w-full md:px-16 md:pt-10">
         <Navbar />
-        <h1 className="text-2xl font-bold mb-4">Visa Services</h1>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div key={service.id} className="border p-4 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold">{service.name}</h2>
-              <p className="text-gray-400 text-xs">{service.description}</p>
-              <p className="mt-2 text-sm">
-                Processing Time: {service.processingTime}
-              </p>
-              <p className="text-sm">Fee: ${service.fee}</p>
-            </div>
-          ))}
+
+        {/* Title */}
+        <h1 className="text-2xl md:text-4xl font-bold mt-6 mb-4 text-white drop-shadow-lg">
+          Visa Services
+        </h1>
+
+        {/* Search & Filter Controls */}
+        <div className="flex flex-col md:flex-row gap-4 mb-6 w-full">
+          {/* Search */}
+          <input
+            type="text"
+            placeholder="Search Visa Service..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="flex-1 px-4 py-2 rounded-lg border border-gray-800 focus:outline-none focus:ring-2 text-gray-800 focus:ring-blue-400 bg-white/90"
+          />
+
+          {/* Fee Filter */}
+          <select
+            value={selectedFee}
+            onChange={(e) => setSelectedFee(e.target.value)}
+            className="px-4 text-gray-800 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/90"
+          >
+            <option value="all">All Fees</option>
+            <option value="low">Low (&lt; $100)</option>
+            <option value="medium">Medium ($100 - $500)</option>
+            <option value="high">High (&gt; $500)</option>
+          </select>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredServices.length > 0 ? (
+            filteredServices.map((service) => (
+              <div
+                key={service.id}
+                className="bg-white/95 border p-4 rounded-lg shadow-md hover:shadow-lg transition"
+              >
+                <h2 className="text-lg text-black font-semibold">
+                  {service.name}
+                </h2>
+                <p className="text-gray-500 text-sm line-clamp-2">
+                  {service.description}
+                </p>
+                <p className="mt-2 text-sm text-gray-700">
+                  Processing Time:{" "}
+                  <span className="font-medium">{service.processingTime}</span>
+                </p>
+                <p className="text-sm text-gray-700">
+                  Fee: <span className="font-medium">${service.fee}</span>
+                </p>
+              </div>
+            ))
+          ) : (
+            <p className="text-white text-lg">No services found.</p>
+          )}
         </div>
       </div>
     </div>

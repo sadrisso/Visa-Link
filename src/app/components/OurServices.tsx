@@ -49,14 +49,6 @@ function OurServices() {
               <p className="text-gray-600 text-sm flex-grow">
                 {service?.description}
               </p>
-
-              {/* Footer */}
-              <div className="mt-4 flex items-center justify-between text-sm">
-                <span className="text-blue-600 font-medium">
-                  Fee: ${service?.fee}
-                </span>
-                <span className="text-gray-500">{service?.processingTime}</span>
-              </div>
             </div>
           </div>
         ))}
