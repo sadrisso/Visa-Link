@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Tourist Visa",
+    "image": "https://i.ibb.co.com/wFSsS62M/tourist.jpg",
+    "description": "Allows travelers to visit the country for leisure, tourism, and short-term stays.",
+    "processingTime": "7-15 business days",
+    "fee": 80,
+    "requiredDocuments": [
+      "Valid Passport (minimum 6 months validity)",
+      "Recent Passport-sized Photograph",
+      "Completed Visa Application Form",
+      "Proof of Accommodation",
+      "Travel Itinerary",
+      "Bank Statement (last 3 months)"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Business Visa",
+    "image": "https://i.ibb.co.com/4n97gWTY/business.webp",
+    "description": "For individuals visiting the country for business meetings, conferences, or work-related events.",
+    "processingTime": "10-20 business days",
+    "fee": 120,
+    "requiredDocuments": [
+      "Valid Passport",
+      "Completed Visa Application Form",
+      "Invitation Letter from Business Partner",
+      "Company Registration Certificate",
+      "Bank Statement",
+      "Travel Insurance"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Student Visa",
+    "image": "https://i.ibb.co.com/GGZ6h1H/student.jpg",
+    "description": "Issued to students enrolled in educational institutions abroad for long-term studies.",
+    "processingTime": "15-30 business days",
+    "fee": 150,
+    "requiredDocuments": [
+      "Valid Passport",
+      "Admission Letter from University/College",
+      "Proof of Payment for Tuition Fees",
+      "Financial Support Documents",
+      "Health Insurance",
+      "Passport-sized Photographs"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Work Visa",
+    "image": "https://i.ibb.co.com/8psWM52/work.webp",
+    "description": "For skilled professionals who have secured a job offer in the destination country.",
+    "processingTime": "20-45 business days",
+    "fee": 200,
+    "requiredDocuments": [
+      "Valid Passport",
+      "Job Offer Letter",
+      "Employment Contract",
+      "Work Permit (if applicable)",
+      "Educational Certificates",
+      "Medical Certificate"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Transit Visa",
+    "image": "https://i.ibb.co.com/nqCmnJSz/transit.webp",
+    "description": "For travelers passing through the country en route to another destination.",
+    "processingTime": "3-7 business days",
+    "fee": 40,
+    "requiredDocuments": [
+      "Valid Passport",
+      "Confirmed Onward Flight Ticket",
+      "Visa for Final Destination (if required)",
+      "Photograph"
+    ]
+  }
+]

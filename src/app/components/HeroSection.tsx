@@ -1,17 +1,6 @@
 import React from "react";
+import Navbar from "./Navbar";
 
-interface NavLink {
-  name: string;
-  href: string;
-}
-
-const navLinks: NavLink[] = [
-  { name: "Home", href: "/" },
-  { name: "Visa Services", href: "/services" },
-  { name: "Apply Now", href: "/apply" },
-  { name: "Track Application", href: "/track" },
-  { name: "Contact", href: "/contact" },
-];
 
 function HeroSection() {
   return (
@@ -28,17 +17,7 @@ function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-white px-4 sm:px-8 md:px-16 w-full max-w-5xl">
         {/* Navigation Links */}
-        <nav className="mb-8 flex flex-wrap gap-4 sm:gap-6 text-sm sm:text-base md:text-lg">
-          {navLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              className="hover:text-blue-400 transition font-semi-bold"
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
+        <Navbar/>
 
         {/* Hero Text */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
