@@ -80,3 +80,12 @@ export default function VisaDetails({ params }: VisaDetailsProps) {
     </div>
   );
 }
+
+
+// // Load saved data from localStorage when component mounts
+//   useEffect(() => {
+//     const saved = localStorage.getItem("applicationData");
+//     if (saved) {
+//       setFormData(JSON.parse(saved));
+//     }
+//   }, []);

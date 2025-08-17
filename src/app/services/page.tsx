@@ -102,9 +102,6 @@ export default function VisaServices() {
                   Processing Time:{" "}
                   <span className="font-medium">{service.processingTime}</span>
                 </p>
-                <p className="text-sm text-gray-700">
-                  Fee: <span className="font-medium">${service.fee}</span>
-                </p>
               </Link>
             ))
           ) : (
